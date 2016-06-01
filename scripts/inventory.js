@@ -15,6 +15,15 @@ $(document).ready(function(){
       'fill': fill
     };
     containers.push( newContainer );
-    console.log( containers );
+    // what do we want to show?
+    // container name, id(index in containers), capacity, fill, fixedCurrentCapacity
+    var outputString = "Container " + newContainer.name + "(" + containers.indexOf( newContainer ) + ") - Fill: " + newContainer.fill  +" , Capacity: " + newContainer.capacity + ", How Much Stuff: " + fixedCurrentCapacity;
+    appendContainerToDom( outputString );
   });
 });
+
+var appendContainerToDom = function( inputText ){
+  var newParagraph = document.createElement('p');
+  newParagraph.textContent = inputText;
+  document.getElementById('outputDiv').appendChild( newParagraph );
+}
